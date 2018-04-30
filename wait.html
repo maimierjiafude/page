@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>wait...</title>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+<span style="font-family:SimSun;font-size:14px;"> 
+	<audio autoplay="autoplay" >  
+      <source  src="song/iloveu.mp3" type="audio/mpeg">   
+    </audio>
+</span>  
+</head>
+
+<body>
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="keyword">一个人挺好的</span> <br />
+			<span class="keyword">就是偶尔有点孤单 ......</span><br /><br />
+			<span class="bolders">时常熬过孤寂黑夜</span><br />
+			<span class="bolders">时间真是慢得如同刀割</span><br />
+			<br /><br />
+			<span class="keyword"></span> 于是我做了这个网页 <span class="keyword">记录</span>;<br />
+			<span class="keyword"></span> 从 <span class="keyword">2018年4月30日4点 </span>开始计时;<br />
+			<span class="placeholder"/>谁也不知道什么时候能<span class="comments">停下来</span><br />
+			<span class="comments">但我一直在等待那个人.</span><br />
+			<span class="comments">也许很快也许很慢，说不清</span><br /><br />
+			<br />
+			<br>
+			<br>
+			但是我<br />
+			<span class="end">会一直等下去的！</span><br />
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					我等你已经等了这么久了。
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					你会感动一下吗？<br/>
+					<div class="signature">- Mr liu</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2018, 4, 30);  //开始日期
+together.setHours(0);				//时钟设置
+together.setMinutes(0);			//分钟设置
+together.setSeconds(0);				//秒设置
+together.setMilliseconds(0);		//毫秒设置
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+
+</script>
+<div style="text-align:center;clear:both">
+<!--<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>-->
+</div>
+</body>
+</html>
